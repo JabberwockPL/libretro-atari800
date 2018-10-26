@@ -614,11 +614,11 @@ int PLATFORM_Keyboard(void)
 
 	/* OPTION / SELECT / START keys */
 	INPUT_key_consol = INPUT_CONSOL_NONE;
-	if (kbhits[SDLK_F2])
+	if (kbhits[SDLK_l])
 		INPUT_key_consol &= ~INPUT_CONSOL_OPTION;
-	if (kbhits[SDLK_F3])
+	if (kbhits[SDLK_r])
 		INPUT_key_consol &= ~INPUT_CONSOL_SELECT;
-	if (kbhits[SDLK_F4])
+	if (kbhits[SDLK_p])
 		INPUT_key_consol &= ~INPUT_CONSOL_START;
 
 	if (key_pressed == 0)
@@ -626,12 +626,14 @@ int PLATFORM_Keyboard(void)
 
 	/* Handle movement and special keys. */
 	switch (lastkey) {
-	case SDLK_F1:
+	case SDLK_RETURN:
 		key_pressed = 0;
 		return AKEY_UI;
 	case SDLK_F5:
 		key_pressed = 0;
 		return INPUT_key_shift ? AKEY_COLDSTART : AKEY_WARMSTART;
+	case SDLK_b:
+		return AKEY_SPACE;
 	case SDLK_F8:
 		UI_alt_function = UI_MENU_MONITOR;
 		break;
