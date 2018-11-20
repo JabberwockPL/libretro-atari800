@@ -163,6 +163,24 @@ int PLATFORM_Keyboard(void)
 
 	UI_alt_function = -1;
 
+	/* FIXME joy bind */
+
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_SELECT])
+		INPUT_key_consol &= (~INPUT_CONSOL_SELECT);
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_START])
+		INPUT_key_consol &= (~INPUT_CONSOL_START);
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_L])
+		INPUT_key_consol &= (~INPUT_CONSOL_OPTION);
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_R])
+		return AKEY_UI;
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_L2])
+		return AKEY_SPACE;
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_R2])
+		return AKEY_ESCAPE;
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_B])
+		return AKEY_RETURN;
+	
+
 	if (Key_Sate[RETROK_LALT]){
 
 		if (Key_Sate[RETROK_r])
@@ -528,23 +546,6 @@ int PLATFORM_Keyboard(void)
 	if (Key_Sate[RETROK_KP_DIVIDE])return AKEY_67;
 	if (Key_Sate[RETROK_KP_ENTER])return AKEY_01;
 */
-
-	/* FIXME joy bind */
-
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_SELECT])
-		INPUT_key_consol &= (~INPUT_CONSOL_SELECT);
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_START])
-		INPUT_key_consol &= (~INPUT_CONSOL_START);
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_L])
-		INPUT_key_consol &= (~INPUT_CONSOL_OPTION);
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_R])
-		return AKEY_UI;
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_L2])
-		return AKEY_SPACE;
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_R2])
-		return AKEY_ESCAPE;
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_B])
-		return AKEY_RETURN;
 }
 
 	if (UI_is_active){
