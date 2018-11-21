@@ -165,12 +165,6 @@ int PLATFORM_Keyboard(void)
 
 	/* FIXME joy bind */
 
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_SELECT])
-		INPUT_key_consol &= (~INPUT_CONSOL_SELECT);
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_START])
-		INPUT_key_consol &= (~INPUT_CONSOL_START);
-	if (mbt[RETRO_DEVICE_ID_JOYPAD_L])
-		INPUT_key_consol &= (~INPUT_CONSOL_OPTION);
 	if (mbt[RETRO_DEVICE_ID_JOYPAD_R])
 		return AKEY_UI;
 	if (mbt[RETRO_DEVICE_ID_JOYPAD_L2])
@@ -179,7 +173,15 @@ int PLATFORM_Keyboard(void)
 		return AKEY_ESCAPE;
 	if (mbt[RETRO_DEVICE_ID_JOYPAD_B])
 		return AKEY_RETURN;
-	
+
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_UP])
+		return AKEY_NONE;
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_DOWN])
+		return AKEY_NONE;
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_LEFT])
+		return AKEY_NONE;
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_RIGHT])
+		return AKEY_NONE;
 
 	if (Key_Sate[RETROK_LALT]){
 
@@ -230,6 +232,14 @@ int PLATFORM_Keyboard(void)
 		INPUT_key_consol &= (~INPUT_CONSOL_SELECT);
 	if (Key_Sate[RETROK_F4])
 		INPUT_key_consol &= (~INPUT_CONSOL_START);
+	
+	/* OPTION / SELECT / START keys from joypad */
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_SELECT])
+		INPUT_key_consol &= (~INPUT_CONSOL_SELECT);
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_START])
+		INPUT_key_consol &= (~INPUT_CONSOL_START);
+	if (mbt[RETRO_DEVICE_ID_JOYPAD_L])
+		INPUT_key_consol &= (~INPUT_CONSOL_OPTION);
 
 	/* Handle movement and special keys. */
 	if (Key_Sate[RETROK_F1])return AKEY_UI;
