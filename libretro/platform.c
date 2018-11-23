@@ -178,9 +178,7 @@ int PLATFORM_Keyboard(void)
 	if (Key_Sate[RETROK_DOWN])return AKEY_NONE;
 	if (Key_Sate[RETROK_LEFT])return AKEY_NONE;
 	if (Key_Sate[RETROK_RIGHT])return AKEY_NONE;
-	if (Key_Sate[RETROK_A])return AKEY_NONE;
-	if (Key_Sate[RETROK_B])return AKEY_NONE;
-
+	if (Key_Sate[RETROK_a])return AKEY_NONE;
 
 	
 	
