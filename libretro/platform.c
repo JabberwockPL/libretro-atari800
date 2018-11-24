@@ -174,11 +174,13 @@ int PLATFORM_Keyboard(void)
 	if (mbt[RETRO_DEVICE_ID_JOYPAD_B])
 		return AKEY_RETURN;
 
-	if (Key_Sate[RETROK_UP])return AKEY_NONE;
-	if (Key_Sate[RETROK_DOWN])return AKEY_NONE;
-	if (Key_Sate[RETROK_LEFT])return AKEY_NONE;
-	if (Key_Sate[RETROK_RIGHT])return AKEY_NONE;
-	if (Key_Sate[RETROK_a])return AKEY_NONE;
+	if (!UI_is_active){
+		if (Key_Sate[RETROK_UP])return AKEY_NONE;
+		if (Key_Sate[RETROK_DOWN])return AKEY_NONE;
+		if (Key_Sate[RETROK_LEFT])return AKEY_NONE;
+		if (Key_Sate[RETROK_RIGHT])return AKEY_NONE;
+		if (Key_Sate[RETROK_a])return AKEY_NONE;
+	}
 
 	
 	
